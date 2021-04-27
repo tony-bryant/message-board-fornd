@@ -1,21 +1,25 @@
 <template>
-  <div style="display: flex;flex-wrap: wrap">
-    <el-card class="box-card"  v-for="i in 10" style="margin: 10px;width: 320px" :key="i">
+  <div>
+    <p style="font-size: 30pt;margin: 0px">XX留言列表</p>
+    <el-card class="box-card" v-for="i in 4" style="display: table;margin: 10px auto;width: 80%" :key="i">
       <div slot="header" class="clearfix">
-        <span>卡片名称</span>
-        <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
+        <span>标题</span>
       </div>
-      <div v-for="o in 4" :key="o" class="text item">
-        {{'列表内容 ' + o }}
+      <div style="text-align: left">
+         内容
       </div>
     </el-card>
+    <el-pagination
+      style="position: absolute;left: 62%;"
+      background
+      layout="prev, pager, next"
+      :total="1000">
+    </el-pagination>
   </div>
 </template>
 
 <script>
-export default {
-
-}
+export default {}
 </script>
 
 <style>
@@ -32,6 +36,7 @@ export default {
   display: table;
   content: "";
 }
+
 .clearfix:after {
   clear: both
 }

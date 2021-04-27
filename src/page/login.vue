@@ -8,32 +8,34 @@
       <el-form-item label="密码" prop="password">
         <el-input type="password" placeholder="请输入密码" v-model="form.password"/>
       </el-form-item>
+      <el-form-item label="验证码" prop="verificationCode">
+        <el-col :span="14">
+          <el-input v-model="form.verificationCode"></el-input>
+        </el-col>
+        <el-col :span="8">
+          <v-sidentify></v-sidentify>
+        </el-col>
+      </el-form-item>
       <el-form-item>
         <el-button type="primary" v-on:click="onSubmit('loginForm')">登录</el-button>
       </el-form-item>
     </el-form>
-
-    <el-dialog
-      title="温馨提示"
-      :visible.sync="dialogVisible"
-      width="30%"
-      :before-close="handleClose">
-      <span>请输入账号和密码</span>
-      <span slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
-      </span>
-    </el-dialog>
   </div>
 </template>
 
 <script>
+import Sidentify from '../components/Sidentify'  //**引入验证码组件**
 export default {
   name: "Login",
+  components: {
+    'v-sidentify':Sidentify
+  },
   data() {
     return {
       form: {
         username: '',
-        password: ''
+        password: '',
+        verificationCode: ''
       },
 
       // 表单验证，需要在 el-form-item 元素中增加 prop 属性
@@ -43,10 +45,11 @@ export default {
         ],
         password: [
           {required: true, message: '密码不可为空', trigger: 'blur'}
+        ],
+        verificationCode: [
+          {required: true, message: '验证码不可为空', trigger: 'blur'}
         ]
       },
-
-      // 对话框显示和隐藏
       dialogVisible: false
     }
   },

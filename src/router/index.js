@@ -12,11 +12,6 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'app',
-      component: app
-    },
-    {
-      path: '/save',
       name: 'save',
       component: save
     },
