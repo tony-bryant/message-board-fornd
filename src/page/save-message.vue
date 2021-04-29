@@ -35,7 +35,7 @@
 import 'quill/dist/quill.core.css'
 import 'quill/dist/quill.snow.css'
 import 'quill/dist/quill.bubble.css'
-import {quillEditor} from 'vue-quill-editor';
+import {addMessage} from '@/api/message';
 
 // https://www.npmjs.com/package/vue-quill-editor 官方文档
 export default {
@@ -52,13 +52,16 @@ export default {
   },
   methods: {
     submit() {
-      console.log(this.formData)
+      addMessage(this.formData).then((res) => {
+        console.log(res)
+      })
+
     },
     changeLanguage() {
       console.log(1)
       this.language = this.bool ? '简体' : '英文'
     },
-    jumpToLogin(){
+    jumpToLogin() {
       this.$router.push('/login')
     }
   }

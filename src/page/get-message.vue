@@ -1,9 +1,9 @@
 <template>
   <div>
     <p style="font-size: 30pt;margin: 0px">XX留言列表</p>
-    <el-card class="box-card" v-for="i in 4" style="display: table;margin: 10px auto;width: 80%" :key="i">
-      <div slot="header" class="clearfix">
-        <span>标题</span>
+    <el-card class="box-card" v-for="i in 4" style="display: table;margin: 10px auto;width: 80%;background-color: #E6A23C" :key="i">
+      <div slot="header">
+        <span style="font-size: 15pt">标题</span>
       </div>
       <div style="text-align: left">
          内容
